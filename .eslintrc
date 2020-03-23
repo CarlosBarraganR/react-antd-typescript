@@ -20,6 +20,16 @@
     "import/no-unresolved": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": 0,
-    "import/no-default-export": 1
+    "import/no-default-export": 1,
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts",
+          "**/*.test.tsx",
+          "src/setupTests.ts"
+        ]
+      }
+    ]
   }
 }
