@@ -1,10 +1,15 @@
-import React from "react";
-import { Button } from "antd";
+import React, { useEffect } from 'react';
+import { Button } from 'antd';
+import logo from './logo.svg';
 
-import logo from "./logo.svg";
-import "./App.css";
+import './App.css';
+import { axiosModule } from './api/axiosModule';
 
 export const App = () => {
+  useEffect(() => {
+    axiosModule.$get(`eventos/publicBasicInfo`);
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
