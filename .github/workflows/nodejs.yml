@@ -2,7 +2,7 @@ name: CongresosTV CI Pipe
 
 on:
   push:
-    branches: [master, develop, feature/*]
+    branches: [feature/*]
   pull_request:
     branches: [master, develop]
 
