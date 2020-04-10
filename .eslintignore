@@ -2,6 +2,7 @@
 # Ignore built files except build/index.js
 build/*
 scripts/*
+config/*
 src/react-app-env.d.ts
 src/serviceWorker.ts
 src/react-app-env.d.ts
