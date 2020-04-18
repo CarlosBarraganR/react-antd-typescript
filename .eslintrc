@@ -14,7 +14,10 @@
         "js": "never",
         "jsx": "never",
         "ts": "never",
-        "tsx": "never"
+        "action": "never",
+        "container": "never",
+        "reducer": "never",
+        "selector": "never"
       }
     ],
     "import/no-unresolved": 0,

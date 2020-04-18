@@ -1,0 +1,6 @@
+.NotFoundView {
+  height: calc(100vh - 64px); /*substract the height of your header*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
