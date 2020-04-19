@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { SagaIterator } from 'redux-saga';
 import { takeLatest, call, put } from 'redux-saga/effects';
+import { sagaRegistry } from 'redux/sagaRegistry';
 import { dogsTestReducer } from '../testReducer';
-import { sagaRegistry } from '../../../redux/sagaRegistry';
 
 const createActionName = (name: string) =>
   `app/${dogsTestReducer.sliceName}/${name}`;

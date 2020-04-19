@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { HomeView } from '../views/home/home';
-import { TestViewContainer } from '../views/testView/testContainer';
-import { NotFoundView } from '../views/notFound/notFound';
+import { HomeView } from 'views/home/home';
+import { TestViewContainer } from 'views/testView/testContainer';
+import { NotFoundView } from 'views/notFound/notFound';
 
 import './App.css';
 

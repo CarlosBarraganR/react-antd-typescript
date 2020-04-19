@@ -1,6 +1,6 @@
+import { SessionManager } from 'session_manager/sessionManager';
+import { GET, POST, DELETE, PATCH, PUT } from 'utils/constants/apiConstants';
 import { axiosRequest } from './axiosRequest';
-import { SessionManager } from '../session_manager/sessionManager';
-import { GET, POST, DELETE, PATCH, PUT } from '../utils/constants/apiConstants';
 
 const $get = (
   url: string,

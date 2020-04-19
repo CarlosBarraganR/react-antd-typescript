@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
+import { SESSION_KEY } from 'utils/constants/sessionConstants';
 import { LocalStorageManager } from './localStorageManager';
-import { SESSION_KEY } from '../utils/constants/sessionConstants';
 
 export type SessionParams = { accessToken: string; tokenType: string };
 

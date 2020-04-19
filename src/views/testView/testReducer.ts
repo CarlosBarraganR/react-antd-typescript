@@ -1,4 +1,4 @@
-import { createReducer } from '../../redux/createReducer';
+import { createReducer } from 'redux/createReducer';
 
 const reducerSliceName = 'dogsTestSlice';
 
