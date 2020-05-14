@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { SESSION_KEY } from 'utils/constants/sessionConstants';
+import { SESSION_KEY } from 'utils/constants';
 import { LocalStorageManager } from './localStorageManager';
 
 export type SessionParams = { accessToken: string; tokenType: string };
@@ -23,9 +23,7 @@ const loadSession = (): { load: () => SessionParams | null } => ({
 });
 
 const deleteSession = () => ({
-  delete: () => {
-    return LocalStorageManager.delete(SESSION_KEY);
-  }
+  delete: () => LocalStorageManager.delete(SESSION_KEY)
 });
 
 const isAuthenticated = () => ({

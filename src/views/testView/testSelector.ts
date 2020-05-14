@@ -5,15 +5,15 @@ const testSlice = (state: any) => state[dogsTestReducer.sliceName];
 
 export const loadingTestSelector = createSelector(
   testSlice,
-  slice => slice && slice.loading
+  slice => slice?.loading
 );
 
 export const errorTestSelector = createSelector(
   testSlice,
-  slice => slice && slice.error
+  slice => slice?.error
 );
 
 export const dogTestSelector = createSelector(
   testSlice,
-  slice => slice && slice.dogUrl
+  slice => slice?.dogUrl
 );

@@ -6,17 +6,20 @@ import {
   errorTestSelector,
   dogTestSelector
 } from './testSelector';
-import { dogsTestApiCallAction } from './state/testSagaAction';
+import { dogsTestApiCallAction, TestSagaAction } from './state/testSagaAction';
+import { TestViewReducer } from './testReducer';
 
-const mapStateToProps = (state: Object): Object => {
-  return {
-    loading: loadingTestSelector(state),
-    error: errorTestSelector(state),
-    dogUrl: dogTestSelector(state)
-  };
-};
+export interface TestViewActions {
+  dogsTestApiCall: () => TestSagaAction;
+}
 
-const mapDispatchToProps = (dispatch: Dispatch): Object => {
+const mapStateToProps = (state: TestViewReducer): TestViewReducer => ({
+  loading: loadingTestSelector(state),
+  error: errorTestSelector(state),
+  dogUrl: dogTestSelector(state)
+});
+
+const mapDispatchToProps = (dispatch: Dispatch): TestViewActions => {
   return {
     dogsTestApiCall: () => dispatch(dogsTestApiCallAction())
   };

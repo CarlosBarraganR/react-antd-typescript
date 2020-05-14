@@ -2,13 +2,13 @@ import { createReducer } from 'redux/createReducer';
 
 const reducerSliceName = 'dogsTestSlice';
 
-export type TestView = {
-  loading: boolean;
-  error: Object | null;
-  dogUrl: string;
+export type TestViewReducer = {
+  readonly loading: boolean;
+  readonly error?: Object | null;
+  readonly dogUrl?: string;
 };
 
-const initialState: TestView = {
+const initialState: TestViewReducer = {
   loading: false,
   dogUrl: '',
   error: null

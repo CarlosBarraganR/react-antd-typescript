@@ -1,85 +1,40 @@
-import { SessionManager } from 'session_manager/sessionManager';
-import { GET, POST, DELETE, PATCH, PUT } from 'utils/constants/apiConstants';
+import { AxiosRequestConfig } from 'axios';
+import { GET, POST, DELETE, PATCH, PUT } from 'utils/constants';
 import { axiosRequest } from './axiosRequest';
 
-const $get = (
-  url: string,
-  options?: Object,
-  withAuthorization?: boolean,
-  customHeaders?: Object
-) =>
+const $get = (url: string, options?: AxiosRequestConfig) =>
   axiosRequest({
     url,
     ...options,
-    method: GET,
-    headers: {
-      ...customHeaders,
-      Authorization: withAuthorization ? SessionManager.headers() : null
-    }
+    method: GET
   });
 
-const $post = (
-  url: string,
-  options: Object,
-  withAuthorization?: boolean,
-  customHeaders?: Object
-) =>
+const $post = (url: string, options: AxiosRequestConfig) =>
   axiosRequest({
     url,
     ...options,
-    method: POST,
-    headers: {
-      ...customHeaders,
-      Authorization: withAuthorization ? SessionManager.headers() : null
-    }
+    method: POST
   });
 
-const $delete = (
-  url: string,
-  options: Object,
-  withAuthorization?: boolean,
-  customHeaders?: Object
-) =>
+const $delete = (url: string, options: AxiosRequestConfig) =>
   axiosRequest({
     url,
     ...options,
-    method: DELETE,
-    headers: {
-      ...customHeaders,
-      Authorization: withAuthorization ? SessionManager.headers() : null
-    }
+    method: DELETE
   });
 
-const $put = (
-  url: string,
-  options: Object,
-  withAuthorization?: boolean,
-  customHeaders?: Object
-) =>
+const $put = (url: string, options: AxiosRequestConfig) =>
   axiosRequest({
     url,
     ...options,
-    method: PUT,
-    headers: {
-      ...customHeaders,
-      Authorization: withAuthorization ? SessionManager.headers() : null
-    }
+    method: PUT
   });
 
-const $patch = (
-  url: string,
-  options: Object,
-  withAuthorization?: boolean,
-  customHeaders?: Object
-) =>
+const $patch = (url: string, options: AxiosRequestConfig) =>
   axiosRequest({
     url,
     ...options,
-    method: PATCH,
-    headers: {
-      ...customHeaders,
-      Authorization: withAuthorization ? SessionManager.headers() : null
-    }
+    method: PATCH
   });
 
 export const axiosModule = {

@@ -1,56 +1,60 @@
-import axios from 'axios';
+import { AnyAction } from 'redux';
+import { axiosModule } from 'api/axiosModule';
 import { SagaIterator } from 'redux-saga';
 import { takeLatest, call, put } from 'redux-saga/effects';
 import { sagaRegistry } from 'redux/sagaRegistry';
-import { dogsTestReducer } from '../testReducer';
+import { dogsTestReducer, TestViewReducer } from '../testReducer';
 
-const createActionName = (name: string) =>
+const createActionName = (name: string): string =>
   `app/${dogsTestReducer.sliceName}/${name}`;
 
-const API_CALL_REQUEST = createActionName('API_CALL_REQUEST');
-const API_CALL_SUCCESS = createActionName('API_CALL_SUCCESS');
-const API_CALL_FAILURE = createActionName('API_CALL_FAILURE');
+export const API_CALL_REQUEST = createActionName('API_CALL_REQUEST');
+export const API_CALL_SUCCESS = createActionName('API_CALL_SUCCESS');
+export const API_CALL_ERROR = createActionName('API_CALL_ERROR');
 
-export const dogsTestApiCallAction = () => ({
+export interface TestSagaAction {
+  type:
+    | typeof API_CALL_REQUEST
+    | typeof API_CALL_SUCCESS
+    | typeof API_CALL_ERROR;
+}
+
+export const dogsTestApiCallAction = (): TestSagaAction => ({
   type: API_CALL_REQUEST
 });
 
-const dogsTestApiCall = () => {
-  return axios({
-    method: 'get',
-    url: 'https://dog.ceo/api/breeds/image/random'
-  });
-};
+const dogsTestApiCall = (): Promise<any> =>
+  axiosModule.$get('https://dog.ceo/api/breeds/image/random');
 
 export function* dogsTestApiCallWatcher(): SagaIterator {
   yield takeLatest(API_CALL_REQUEST, dogsTestApiCallWorker);
 }
 sagaRegistry.register(dogsTestApiCallWatcher);
 
-function* dogsTestApiCallWorker() {
+export function* dogsTestApiCallWorker() {
   try {
     const response = yield call(dogsTestApiCall);
-    yield put({ type: API_CALL_SUCCESS, payload: response.data });
+    yield put({ type: API_CALL_SUCCESS, payload: response });
   } catch (error) {
-    yield put({ type: API_CALL_FAILURE, error });
+    yield put({ type: API_CALL_ERROR, error: error.data });
   }
 }
 
 const updatedDogTestReducer = {
-  [API_CALL_REQUEST]: (state: any) => {
+  [API_CALL_REQUEST]: (state: TestViewReducer) => {
     return {
       ...state,
       loading: true
     };
   },
-  [API_CALL_SUCCESS]: (state: any, action: any) => {
+  [API_CALL_SUCCESS]: (state: TestViewReducer, action: AnyAction) => {
     return {
       ...state,
       loading: false,
       dogUrl: action.payload.message
     };
   },
-  [API_CALL_FAILURE]: (state: any, action: any) => {
+  [API_CALL_ERROR]: (state: TestViewReducer, action: AnyAction) => {
     return {
       ...state,
       loading: false,

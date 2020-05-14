@@ -1,0 +1,28 @@
+.rootLayout {
+  height: 100vh;
+}
+
+.sider {
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  z-index: 2;
+}
+
+.content {
+  margin-left: 200px;
+  margin-top: 64px;
+  padding: 20px;
+  min-height: calc(100vh - 64px);
+  transition: all 0.3s;
+
+  &_collapsed {
+    margin-left: 80px;
+    transition: all 0.3s;
+  }
+
+  &_mobile {
+    margin-left: 0;
+  }
+}

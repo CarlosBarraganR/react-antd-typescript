@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
+import { TestViewReducer } from './testReducer';
+import { TestViewActions } from './testContainer';
 
-type Props = {
-  loading: boolean;
-  error: Object;
-  dogUrl: string;
-  dogsTestApiCall: () => void;
-};
+type Props = TestViewReducer & TestViewActions;
 
 export const TestView = (props: Props) => {
   const { loading, error, dogUrl, dogsTestApiCall } = props;
@@ -15,7 +12,7 @@ export const TestView = (props: Props) => {
   }, [dogsTestApiCall]);
 
   return (
-    <div className="root">
+    <div>
       <header className="App-header">
         <img src={dogUrl} className="App-logo" alt="logo" />
         <h1 className="title">Welcome to Dog Saga</h1>

@@ -1,0 +1,35 @@
+.header {
+  background: #fff;
+  padding: 0 20px;
+  margin-left: 200px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  transition: all 0.3s;
+
+  &_collapsed {
+    margin-left: 80px;
+    transition: all 0.3s;
+  }
+
+  &_mobile {
+    margin-left: 0;
+  }
+
+  &_collapsed_and_mobile {
+    margin-left: 200px;
+    transition: all 0.3s;
+  }
+}
+
+.trigger {
+  height: 64px;
+  padding: 22px 0px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+}

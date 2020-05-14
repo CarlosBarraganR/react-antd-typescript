@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { render } from '@testing-library/react';
-import { App } from './App';
+import { App } from './app';
 
 const middlewares = [createSagaMiddleware()];
 const mockStore = configureStore(middlewares);
