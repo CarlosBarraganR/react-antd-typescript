@@ -32,6 +32,9 @@ jobs:
           eslint: true
           prettier: true
 
+      - name: Run Typescript
+        run: npm run tslint
+
   test:
     name: Builds and test
     runs-on: ubuntu-latest
