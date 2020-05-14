@@ -24,8 +24,8 @@ export const App = () => {
 
   return (
     <Router>
-      <Layout className="rootLayout">
-        <div data-testid="app">
+      <Layout>
+        <div className="rootLayout" data-testid="app">
           <Layout.Sider
             data-testid="sider"
             breakpoint={BREAKPOINT_MD}

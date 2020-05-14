@@ -1,4 +1,5 @@
 .rootLayout {
+  width: 100%;
   height: 100vh;
 }
 
@@ -11,10 +12,10 @@
 }
 
 .content {
+  min-height: calc(100vh - 64px);
   margin-left: 200px;
   margin-top: 64px;
   padding: 20px;
-  min-height: calc(100vh - 64px);
   transition: all 0.3s;
 
   &_collapsed {
