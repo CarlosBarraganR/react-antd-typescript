@@ -58,7 +58,7 @@ describe('AxiosRequest', () => {
           url: 'https://dog.ceo/api/breeds/imadge/random',
           method: 'get',
           headers: { Accept: 'application/json, text/plain, */*' },
-          baseURL: 'https://congresos.tv/api',
+          baseURL: 'https://dog.ceo.tv/api',
           transformRequest: [null],
           transformResponse: [null],
           timeout: 0,

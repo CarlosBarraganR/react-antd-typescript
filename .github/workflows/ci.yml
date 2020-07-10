@@ -1,4 +1,4 @@
-name: CongresosTV CI Pipe
+name: Typescript Template CI Pipe
 
 on:
   push:
